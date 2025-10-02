@@ -1,0 +1,27 @@
+body {
+  background: #0f172a;
+  color: #e5e7eb;
+  font-family: Arial, sans-serif;
+}
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #111827;
+  padding: 20px;
+  border-radius: 12px;
+}
+input, button {
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+button {
+  background: #22d3ee;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.verdict.likely-safe { color: #10b981; }
+.verdict.low-risk { color: #ffa500; }
+.verdict.suspicious { color: #facc15; }
+.verdict.likely-malicious { color: #ef4444; }

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fake Link Detector</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>🔎 Fake Link Detector</h1>
+    <form method="post">
+      <input type="url" name="url" placeholder="Enter a URL" required>
+      <button type="submit">Check</button>
+    </form>
+
+    {% if result %}
+      <h2>Verdict: <span class="verdict {{ result.verdict|lower|replace(' ', '-') }}">{{ result.verdict }}</span></h2>
+      <p><b>Score:</b> {{ result.score }}</p>
+      <p><b>Host:</b> {{ result.host }}</p>
+      <p><b>TLD:</b> .{{ result.tld }}</p>
+      <h3>Reasons:</h3>
+      <ul>
+        {% for r in result.reasons %}
+          <li>{{ r }}</li>
+        {% endfor %}
+      </ul>
+      <h3>Detailed analysis:</h3>
+      <pre>{{ ai_analysis }}</pre>
+    {% endif %}
+  </div>
+</body>
+</html>
